@@ -1,6 +1,6 @@
 node{
   stage('SCM Checkout'){
-    git 'https://github.com/bvlns/project/new/master'
+    git 'https://github.com/bvlns/project'
  }
  
  stage('Compile-Package'){

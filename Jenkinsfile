@@ -8,13 +8,11 @@ node{
    def mvnHome = tool name: 'Maven-3', type: 'maven'
    sh "${mvnHome}/bin/mvn package"
  }
-  stage('Upload-artifacts-to-S3'){
-    s3Upload 's3CopyArtifact buildSelector: lastSuccessful(), excludeFilter: '', filter: '', flatten: false, optional: false, projectName: 'Publish-to-S3', target: '''
+  stage('Upload-artifacts'){
+    s3Upload s3CopyArtifact buildSelector: lastSuccessful(), excludeFilter: '', filter: '', flatten: false, optional: false, projectName: 'Publish-to-S3', target: ''
   }
    
-  
-
-}
+  }
 
 
 

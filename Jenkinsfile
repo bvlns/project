@@ -9,7 +9,7 @@ node{
    sh "${mvnHome}/bin/mvn package"
  }
   stage('Upload-artifacts'){
-    s3CopyArtifact buildSelector: lastSuccessful(), excludeFilter: '', filter: '', flatten: false, optional: false, projectName: 'Publish-to-S3', target: ''
+    s3Upload consoleLogLevel: 'INFO', dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'srini.com', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'us-gov-east-1', showDirectlyInBrowser: false, sourceFile: '**/*.apk', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 's3upload', userMetadata: []
   }
    
   }

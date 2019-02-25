@@ -9,7 +9,7 @@ node{
    sh "${mvnHome}/bin/mvn package"
  }
   stage('Upload-artifacts'){
-    s3Upload s3CopyArtifact buildSelector: lastSuccessful(), excludeFilter: '', filter: '', flatten: false, optional: false, projectName: 'Publish-to-S3', target: ''
+    s3CopyArtifact buildSelector: lastSuccessful(), excludeFilter: '', filter: '', flatten: false, optional: false, projectName: 'Publish-to-S3', target: ''
   }
    
   }

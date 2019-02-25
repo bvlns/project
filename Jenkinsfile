@@ -7,7 +7,13 @@ node{
     // Path for mavenHome
    def mvnHome = tool name: 'Maven-3', type: 'maven'
    sh "${mvnHome}/bin/mvn package"
- 
-   
-  }
+ }
+ stage('Upload-artifacts-to-S3')
+  
+
 }
+
+
+
+
+
